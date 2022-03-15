@@ -40,27 +40,19 @@
   }
 </style>
 
-<button></button>
 <script>
-  const divs = document.querySelectorAll('div');
-  const button = document.querySelector('button');
+const divs = document.querySelectorAll('div');
 
-  function logText(e) {
-    console.log(this.classList.value);
-    // e.stopPropagation(); // stop bubbling!
-    // console.log(this);
-  }
+function logText(e){
+  console.log(this.classList.value);
+  //e.stopPropagation(); // stops bubbling
+}
 
-  divs.forEach(div => div.addEventListener('click', logText, {
-    capture: false,
-    once: true
-  }));
 
-  button.addEventListener('click', () => {
-    console.log('Click!!!');
-  }, {
-    once: true
-  });
+divs.forEach(div => div.addEventListener ('click', logText,{ //options for addEventListener
+  capture:false, // false by default :capture goes down and then bubbling goes up
+  once: true //listens only once and then remove the event listener
+}));
 
 </script>
 </body>
